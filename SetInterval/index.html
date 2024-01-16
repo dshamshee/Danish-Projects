@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        .child {
+            background-color: aliceblue;
+            border: 2px solid black;
+            padding: 14px;
+            margin: 14px;
+            cursor: pointer;
+        }
+
+        .childContainer {
+            background-color: beige;
+            padding: 14px;
+            margin: 14px;
+            cursor: pointer;
+        }
+
+        .container {
+            background-color: rgb(228, 228, 78);
+            padding: 14px;
+            margin: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="childContainer">
+            <div class="child">Click Me</div>
+        </section>
+    </div>
+    <script>
+        document.querySelector(".child").addEventListener("click", (e) => {
+            e.stopPropagation()  // This Function is stop the Bubbling 
+            alert("Congratulation's Aap Chutiye hai : )")
+        })
+        document.querySelector(".childContainer").addEventListener("click", (e) => {
+            e.stopPropagation()  // This Function is stop the Bubbling 
+            alert("ChildContainer was clicked")
+        })
+        document.querySelector(".container").addEventListener("click", (e) => {
+            alert("container was clicked")
+        })
+
+        function GetRandomColor(){
+            
+            let r = Math.floor(0+Math.random()*255);
+            let g = Math.floor(0+Math.random()*255);
+            let b = Math.floor(0+Math.random()*255);
+            return `rgb(${r},${g},${b})`
+        }
+
+        setInterval(() => {  // It run continuously again and again
+            document.querySelector(".child").style.background=GetRandomColor();
+            document.querySelector(".childContainer").style.background=GetRandomColor();
+            document.querySelector(".container").style.background=GetRandomColor();
+        }, 1000);
