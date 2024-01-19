@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Birth Calculator</title>
+    <style>
+        #body{
+        background: linear-gradient(180deg, orange,
+                    rgb(249, 70, 100),
+                    rgb(244, 43, 244));
+            width: 98vw;
+            height: 96vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .labl{
+            color: white;
+        }
+
+
+        #btn{
+            background: linear-gradient(144deg, #af40ff,
+            #5b42f3 50%,
+            #00ddeb);
+            /* padding: 8px !important; */
+            padding-left: 40px;
+            padding-right: 40px;
+            margin: 20px;
+            border-radius: 10px;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        #btn:hover {
+            border-radius: 20px;
+            box-shadow: 0px 0px 60px #dfe918;
+        }
+
+        .frm{
+            font-size: 30px;
+        }
+        .inp{
+            width: 270px;
+    height: 35px;
+        }
+
+        #lab1{
+            padding-right: 22px;
+        }
+        
+    </style>
+</head>
+<body id="body">
+        <form class="frm" action="">
+            <label class="labl" id="lab1" for="text">Enter your Birth Date</label>
+            <input class="inp" id="Input1" type="number"><br><br>
+            <label class="labl" for="text">Enter your Birth Month</label>
+            <input class="inp" id="Input2" type="number">
+            <p class="para"></p>
+        </form>
+        <button id="btn">Submit</button>
+
+        <script>
+           
+            
+
+            document.querySelector("#btn").addEventListener("click", ()=>{
+                let day = document.getElementById("Input1").value;
+            let mmon = document.getElementById("Input2").value;
+                let today = new Date();
+            let birthdate = new Date(today.getFullYear(), mmon-1, day);
+            let milisecondinaday = 1000 * 60 * 60 * 24;
+            let remainday = Math.ceil((birthdate.getTime() - today.getTime())/ (milisecondinaday));
+            
+            document.querySelector(".para").innerHTML= "Your Next Birthday comes After " +  remainday + " Days";
+            // console.log(remainday);
+            })
+
+        </script>
+</body>
+</html>
