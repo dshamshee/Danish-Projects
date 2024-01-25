@@ -6,7 +6,7 @@ function createCard(title, cName, views, monthOld, duration, thumbnail) {
     }
 
     else if (views > 1000000) {
-        viewstr = views / 1000000 + "M";
+        viewstr = Math.floor(views / 1000000) + "M";
     }
 
     else {
