@@ -2,7 +2,7 @@ function createCard(title, cName, views, monthOld, duration, thumbnail) {
     // Finish this Function 
     let viewstr
     if (views < 1000) {
-        viewstr = Math.floor(views / 1000);
+        viewstr = views;
     }
 
     else if (views > 1000000) {
