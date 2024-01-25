@@ -114,8 +114,7 @@ p {
 
 
 .button{
-    margin-left: 18%;
-    margin-top: 10px;
+   margin-top: 10px;
   }
 
 
@@ -154,10 +153,11 @@ p {
 
 .form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 325px;
-    height: 325px;
+    width: 350px;
+    height: 350px;
     border-radius: 50px;
     background: #e0e0e0;
     box-shadow: 20px 20px 60px #bebebe,
