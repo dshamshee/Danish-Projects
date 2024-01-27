@@ -12,7 +12,7 @@ p{
     color: green;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1500px) {
     p{
         font-size: 38px;
     }
