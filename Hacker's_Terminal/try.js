@@ -51,7 +51,7 @@ const sixthPromise = new Promise(function(resolve, reject){
    setTimeout(() => {
       // alert("Your Device Hacked !")
       setTimeout(() => {
-           alert("Your Device Hacked !")
+           alert("Your Device have been Hacked !")
         }, 1000);
        pr.innerHTML="Login Grant Successfully !"
        resolve("Promise sixth resolved")
