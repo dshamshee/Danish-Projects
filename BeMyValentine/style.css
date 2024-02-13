@@ -73,3 +73,7 @@ body {
   background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
   /* border-radius: 10px; */
 }
+
+.copy{
+  font-size: 10px;
+}
