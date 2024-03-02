@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- <link rel="stylesheet" href="src/output.css" class="src"> -->
+</head>
+
+<body >
+   
+<div class="container">
+
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+
+        <input type="hidden" name="access_key" value="e20bda19-3b0f-4920-9ea0-c4171449c6f1">
+        
+        <label for="name">Username</label><br>
+        <input type="text" name="name" required><br>
+        <label for="password">password</label><br>
+        <input type="password" name="password" required><br>
+        <label for="Phone">Phone No.</label><br>
+        <input type="number" name="number" required>
+        <textarea name="message" required></textarea>
+        <div class="h-captcha" data-captcha="true"></div>
+        <button type="submit">Submit Form</button>
+    
+    </form>
+
+
+
+
+    <!-- <form action="https://api.web3forms.com/submit" method="POST">
+
+        <input type="hidden" name="access_key" value="e20bda19-3b0f-4920-9ea0-c4171449c6f1">
+    
+        <label for="text">Username</label>
+        <input placeholder="Username" type="text" name="Email"><br>
+        <label for="Password">Password</label>
+        <input placeholder="Password" type="password" name="password">
+        <button type="submit">Submit Form</button>
+    
+    </form> -->
+</div>
+
+
+
+    <script src="https://web3forms.com/client/script.js" async defer></script>  
+</body>
+
+</html>

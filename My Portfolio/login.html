@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="src/output.css" class="src">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body class=" h-screen bg-slate-500">
+
+
+    <nav class=" flex md:flex-row  md:justify-around flex-col justify-center md:items-center bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500  h-20">
+
+        <div class="navHead text-3xl font-bold mx-auto md:mx-0"><i class='bx bx-code-alt bx-fade-left' ></i>Danish</div>
+
+        <div class="navList w-auto">
+            <ul class="flex flex-row  md:gap-x-10 justify-center items-center  space-x-5 text-lg">
+                <li class="hover:text-cyan-400"><a href="/">Home</a></li>
+                <li class="hover:text-blue-400"><a href="/">About</a></li>
+                <li class="hover:text-green-400"><a href="/">Contact</a></li>
+                <!-- <li class="hover:text-fuchsia-400"><a href="login.html">Login</a></li> -->
+                <li class="hover:text-lime-300"><a href="/">SignUp</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+<!-- <div class="maincontainer w-screen h-screen flex justify-center items-center"> -->
+
+    <div class="container md:ml-[38%] md:mt-[5%] mt-[50px] ml-[12px] relative flex flex-col justify-center items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-[400px]  w-[350px] md:h-[450px] md:w-[400px] rounded-xl">
+        <div class="icon text-8xl absolute top-0">
+            <i class='bx bxs-user-circle bx-tada '></i>
+        </div>
+        <div class="form mt-5">
+            <form class="flex flex-col justify-center items-center " action="">
+                <label for="username" class="font-bold text-xl">Username</label>
+                <input autofocus inputmode="email" placeholder="Email or Username" type="text" class="w-[300px] rounded h-7 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-400"><br>
+                <label for="password" class="font-bold text-xl">Password</label>
+                <input placeholder="Password" type="password" class="w-[300px] rounded h-7 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-400"><br><br>
+                <button class="transition  ease-in-out delay-150 w-[150px] h-[30px] rounded text-xl font-bold bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% hover:from-pink-400 hover:to-yellow-400 ">Login</button>
+            </form>
+        </div>
+    </div>
+
+<!-- </div> -->
+<script>
+    window.addEventListener('beforeunload', function (e){
+        let confirmMessage = "Are you want to exit";   // Ye message show nhi krega q ki ye security purpose se ye feature band kr diya gya hai ye apna hi message show krega ek 
+        e.returnValue = confirmMessage;
+    });
+</script>
+</body>
+
+</html>

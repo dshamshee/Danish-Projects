@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailWind NavBar</title>
+    <link rel="stylesheet" href="src/output.css" class="src">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+</head>
+
+<body class=" bg-[#222222] text-white">
+
+
+
+    <header id="navigation-bar" class="bg-[#222222] border border-black">
+        <a href="#" class="logo"><i class="ri-terminal-box-fill"></i> <span><i class='bx bx-code-alt bx-fade-left'></i>Danish</span></a>
+        <ul class="navbar">
+            <li class="  hover:text-cyan-400"><a href="#" class="active">Home</a></li>
+            <li class="hover:text-blue-400"><a href="#">About</a></li>
+            <li class="hover:text-lime-300"><a href="#">Services</a></li>
+            <li class="hover:text-green-400"><a href="#">Project</a></li>
+            <li class="hover:text-fuchsia-400"><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="main">
+            <a href="https://github.com/dshamshee?tab=repositories" class="user"><i class='bx bxl-github bx-flashing'></i></a>
+            <li class="hover:text-lime-300"><a href="">Resume</a></li>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+
+
+    <!-- <nav class=" flex md:flex-row  md:justify-around flex-col justify-center md:items-center bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500  h-20">
+
+        <div class="navHead text-3xl font-bold mx-auto md:mx-0"><i class='bx bx-code-alt bx-fade-left' ></i>Danish</div>
+
+        <div class="navList w-auto">
+            <ul class="flex flex-row  md:gap-x-10 justify-center items-center  space-x-5 text-lg">
+                <li class="hover:text-cyan-400"><a href="/">Home</a></li>
+                <li class="hover:text-blue-400"><a href="/">About</a></li>
+                <li class="hover:text-lime-300"><a href="/">Skills</a></li>
+                <li class="hover:text-green-400"><a href="/">Contact Me</a></li>
+                <li class="hover:text-fuchsia-400"><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+
+        <div class="resume text-5xl"><i class='bx bxl-github bx-flashing' ></i></div>
+    </nav> -->
+
+
+
+    <main id="Main" class=" md:ml-20 md:mt-24 mt-10 flex md:flex-row flex-col gap-10 md:gap-20">
+        <div class="image md:mt-[-55px] flex flex-col justify-center items-center   overflow-hidden">
+            <img class="rounded-full h-80 w-80 md:h-auto md:w-auto ring-4 ring-green-300 ring-inset hover:ring-green-500"
+                src="Head Picture 2.png" alt="">
+        </div>
+        <div class="heading flex flex-col justify-center items-center md:inline-block ">
+            <h1 class="md:text-8xl text-5xl font-bold">I'm Danish</h1>
+            <h2 class="text-green-500 md:text-8xl text-5xl font-bold"><span class="md:text-8xl" id="element"></span></h2>
+            <div class="md:w-[700px]  w-[330px] text-balance">
+                <h1 class="md:text-3xl md:font-bold text-2xl md:mt-8 mt-4">Coding My Way to the Future</h1>
+                <p class="hidden md:block">I'm a passionate tech student with a keen interest in software development. I am dedicated to learning and mastering the latest technologies and programming languages. My goal is to leverage my skills to solve complex problems and create innovative solutions. As a future software developer, I am committed to continuous learning and growth in this ever-evolving field.</p>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
