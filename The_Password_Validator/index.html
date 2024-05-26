@@ -1,0 +1,40 @@
+
+<!-- Question 
+    The Password Validator: You are building a password validation feature.
+     Create a function that checks if a given password meets the following criteria:
+     1. at least 8 characters long
+     2. contains both uppercase and lowercase letters 
+     3. includes at least one digit.   -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Validator</title>
+    </head>
+    <body>
+    <input id="InputPassword" type="text">
+    <button>Save</button>
+    <h1 id="Password"></h1>
+    <script>
+        function checksPassword(value){
+            let hasUpperCase = /[A-Z]/.test(value)      // Check UpperCase Includes or Not
+            let hasLowerCase = /[a-z]/.test(value)      // check LowerCase Includes or Not
+            let hasNumber = /\d/.test(value)            // Check Number Includes or Not
+            let hasSpecialChar = /[@#$]/.test(value);   // Check Special Character Include or Not
+            if(hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar){
+                document.querySelector("#Password").innerHTML = `Strong Password: ${value}`
+            }
+            else{
+                document.querySelector("#Password").innerHTML = ""
+                alert("Please Enter Valid Password")
+            }
+        }
+        document.querySelector("button").addEventListener('click',()=>{
+            let password = document.querySelector("#InputPassword").value;
+             checksPassword(password)
+    })  
+    </script>
+</body>
+</html>
