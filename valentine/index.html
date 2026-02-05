@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Annoying Valentine Game 😈</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff6a88, #ff99ac);
+      overflow: hidden;
+    }
+
+    .box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 8px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .primary {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .ghost {
+      background: #eee;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #fakeLoading {
+      font-weight: bold;
+      color: #ff4d6d;
+    }
+
+    .popup {
+      position: fixed;
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      animation: pop 0.3s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="box">
+
+    <!-- Screen 1 -->
+    <div id="screen1">
+      <h2>Warning ⚠️</h2>
+      <p>This game may annoy you.</p>
+      <button class="primary" onclick="goToScreen2()">Continue Anyway 😌</button>
+    </div>
+
+    <!-- Screen 2 Fake Loading -->
+    <div id="screen2" class="hidden">
+      <h2>Loading Love...</h2>
+      <p id="fakeLoading">0%</p>
+    </div>
+
+    <!-- Screen 3 Impossible Choice -->
+    <div id="screen3" class="hidden">
+      <h2>Choose wisely 😏</h2>
+      <p>Who is the most annoying person in your life?</p>
+      <button onclick="wrongChoice()" class="ghost">You 😒</button>
+      <button onclick="wrongChoice()" class="ghost">Definitely You 😑</button>
+      <button onclick="wrongChoice()" class="ghost">Still You 😤</button>
+      <button onclick="correctChoice()" class="primary">My Cute Boyfriend 😍</button>
+    </div>
+
+    <!-- Screen 4 Moving Button -->
+    <div id="screen4" class="hidden">
+      <h2>Click "NO" to escape 😈</h2>
+      <button id="noBtn" class="ghost" style="position:absolute;">NO</button>
+      <button onclick="trap()" class="primary">YES</button>
+    </div>
+
+    <!-- Final -->
+    <div id="final" class="hidden">
+      <h2>You survived 😂</h2>
+      <p>I was going to be romantic...
+      <br>But annoying you is my love language ❤️</p>
+      <h3>Happy Valentine's Day 😜</h3>
+    </div>
+
+  </div>
+
+<script>
+
+function goToScreen2(){
+  screen1.classList.add('hidden');
+  screen2.classList.remove('hidden');
+
+  let percent = 0;
+  const loader = setInterval(()=>{
+    percent += Math.floor(Math.random()*15);
+    if(percent >= 100){
+      percent = 99; // troll 😈
+      fakeLoading.textContent = percent + "%";
+
+      setTimeout(()=>{
+        fakeLoading.textContent = "Error 😵 Retry";
+        setTimeout(()=>{
+          screen2.classList.add('hidden');
+          screen3.classList.remove('hidden');
+        },1500);
+      },1200);
+
+      clearInterval(loader);
+    }else{
+      fakeLoading.textContent = percent + "%";
+    }
+  },200);
+}
+
+function wrongChoice(){
+  spawnPopup("Wrong answer 🚫 Try again!");
+}
+
+function correctChoice(){
+  screen3.classList.add('hidden');
+  screen4.classList.remove('hidden');
+}
+
+// Running button troll
+const noBtn = document.getElementById('noBtn');
+
+noBtn.addEventListener('mouseover', ()=>{
+  noBtn.style.left = Math.random()*250 + 'px';
+  noBtn.style.top = Math.random()*150 + 'px';
+});
+
+function trap(){
+  spawnPopup("HAHA! There was never a NO escape 😜");
+
+  setTimeout(()=>{
+    screen4.classList.add('hidden');
+    final.classList.remove('hidden');
+  },1200);
+}
+
+function spawnPopup(text){
+  const pop = document.createElement('div');
+  pop.className = 'popup';
+  pop.innerText = text;
+  pop.style.left = Math.random()*70 + 'vw';
+  pop.style.top = Math.random()*70 + 'vh';
+
+  document.body.appendChild(pop);
+
+  setTimeout(()=> pop.remove(),1500);
+}
+
+</script>
+</body>
+</html>
