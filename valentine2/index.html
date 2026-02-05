@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Love Algorithm ❤️‍🔥</title>
+
+<style>
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at top,#ff7aa2,#ff2e63);
+  font-family:'Inter',system-ui;
+  overflow:hidden;
+}
+
+.container{
+  width:95%;
+  max-width:520px;
+  background:white;
+  border-radius:30px;
+  padding:50px;
+  text-align:center;
+  box-shadow:0 40px 120px rgba(0,0,0,.25);
+  position:relative;
+}
+
+h1{margin-top:0}
+
+button{
+  padding:15px 30px;
+  border:none;
+  border-radius:50px;
+  font-size:16px;
+  cursor:pointer;
+  margin:10px;
+  transition:.25s;
+}
+
+button:hover{
+  transform:scale(1.08);
+}
+
+.primary{
+  background:#ff2e63;
+  color:white;
+}
+
+.secondary{
+  background:#ffe6ec;
+}
+
+.hidden{display:none}
+
+/* typing effect */
+#terminal{
+  background:#111;
+  color:#00ff9c;
+  padding:25px;
+  border-radius:18px;
+  text-align:left;
+  font-family:monospace;
+  height:180px;
+  overflow:hidden;
+}
+
+.cursor{
+  display:inline-block;
+  width:10px;
+  background:#00ff9c;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0}
+}
+
+/* love meter */
+.meter{
+  width:100%;
+  height:22px;
+  background:#ffd6e0;
+  border-radius:20px;
+  margin-top:20px;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#ff2e63,#ff8fab);
+  transition:width .4s;
+}
+
+/* magnetic button */
+#noBtn{
+  position:relative;
+}
+
+/* confetti hearts */
+.heart{
+  position:fixed;
+  font-size:18px;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{ transform:translateY(110vh); }
+}
+
+.finalText{
+  font-size:20px;
+  line-height:1.6;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- SCREEN 1 -->
+<div id="s1">
+<h1>The Love Algorithm ❤️‍🔥</h1>
+<p>I built an AI that predicts our romantic future.</p>
+<button class="primary" onclick="boot()">Initialize Algorithm</button>
+</div>
+
+<!-- SCREEN 2 TERMINAL -->
+<div id="s2" class="hidden">
+<h2>Booting LoveOS...</h2>
+<div id="terminal"></div>
+</div>
+
+<!-- SCREEN 3 METER -->
+<div id="s3" class="hidden">
+<h2>Scanning Compatibility...</h2>
+<p>Move your mouse ❤️</p>
+<div class="meter">
+<div class="fill" id="fill"></div>
+</div>
+<p id="percent">0% Love Detected</p>
+</div>
+
+<!-- SCREEN 4 DECISION -->
+<div id="s4" class="hidden">
+<h2>Algorithm Result Ready</h2>
+<p>Do you accept this relationship upgrade?</p>
+
+<button class="primary" onclick="acceptLove()">ACCEPT ❤️</button>
+<button class="secondary" id="noBtn">DECLINE 💀</button>
+</div>
+
+<!-- FINAL -->
+<div id="final" class="hidden">
+<h1>Connection Established ❤️</h1>
+<p class="finalText">
+Status: <b>Girlfriend Mode Activated.</b><br><br>
+Side effects may include:<br>
+• Excessive smiling 😄<br>
+• Food stealing 🍟<br>
+• Random hugs 🤗<br>
+• Me annoying you forever 😈
+<br><br>
+<b>Happy Valentine's Day ❤️</b>
+</p>
+</div>
+
+</div>
+
+<script>
+
+/////////////////////////
+// TERMINAL TYPING
+/////////////////////////
+
+const lines=[
+"> Loading emotional data...",
+"> Analyzing chat history...",
+"> Detecting cuteness levels...",
+"> WARNING: Extremely adorable human found",
+"> Calculating boyfriend luck...",
+"> Result: Suspiciously perfect match",
+"> Launching Love Scan..."
+];
+
+function boot(){
+ s1.classList.add('hidden');
+ s2.classList.remove('hidden');
+
+ let i=0;
+ const term=document.getElementById('terminal');
+
+ const interval=setInterval(()=>{
+   if(i>=lines.length){
+     clearInterval(interval);
+
+     setTimeout(()=>{
+       s2.classList.add('hidden');
+       startScan();
+     },800);
+     return;
+   }
+
+   term.innerHTML+=lines[i]+"<br>";
+   i++;
+ },600);
+}
+
+/////////////////////////
+// LOVE METER
+/////////////////////////
+
+let love=0;
+
+function startScan(){
+ s3.classList.remove('hidden');
+
+ window.addEventListener('mousemove',increaseLove);
+}
+
+function increaseLove(){
+ if(love>=100) return;
+
+ love+=Math.random()*5;
+ fill.style.width=love+"%";
+ percent.innerText=Math.floor(love)+"% Love Detected";
+
+ if(love>=100){
+   percent.innerText="100% — Soulmate Found ❤️";
+   window.removeEventListener('mousemove',increaseLove);
+
+   setTimeout(()=>{
+     s3.classList.add('hidden');
+     s4.classList.remove('hidden');
+     magneticNo();
+   },700);
+ }
+}
+
+/////////////////////////
+// MAGNETIC NO BUTTON
+/////////////////////////
+
+function magneticNo(){
+ const btn=document.getElementById('noBtn');
+
+ document.addEventListener('mousemove',(e)=>{
+   const rect=btn.getBoundingClientRect();
+
+   const dist=Math.hypot(
+     e.clientX-(rect.left+rect.width/2),
+     e.clientY-(rect.top+rect.height/2)
+   );
+
+   if(dist<140){
+     btn.style.transform=`translate(${(rect.left-e.clientX)/2}px, ${(rect.top-e.clientY)/2}px)`;
+   }
+ });
+}
+
+/////////////////////////
+// FINAL
+/////////////////////////
+
+function acceptLove(){
+ s4.classList.add('hidden');
+ final.classList.remove('hidden');
+ heartExplosion();
+}
+
+function heartExplosion(){
+ setInterval(()=>{
+   const h=document.createElement('div');
+   h.className='heart';
+   h.innerText='💖';
+   h.style.left=Math.random()*100+'vw';
+   h.style.animationDuration=(Math.random()*2+2)+'s';
+   document.body.appendChild(h);
+
+   setTimeout(()=>h.remove(),4000);
+ },100);
+}
+
+</script>
+</body>
+</html>
