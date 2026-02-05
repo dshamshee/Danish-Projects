@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiverse Love Portal 💫</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Inter,system-ui;
+  background:radial-gradient(circle at center,#6a11cb,#2575fc);
+  overflow:hidden;
+}
+
+.portal{
+  width:95%;
+  max-width:560px;
+  background:white;
+  border-radius:28px;
+  padding:50px;
+  text-align:center;
+  box-shadow:0 50px 120px rgba(0,0,0,.35);
+}
+
+h1{margin-top:0}
+
+button{
+  padding:14px 26px;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  font-size:16px;
+  margin:10px;
+  transition:.25s;
+}
+
+button:hover{
+  transform:scale(1.08);
+}
+
+.primary{background:#ff4d6d;color:white}
+.secondary{background:#eef1ff}
+.hidden{display:none}
+
+.timeline{
+  text-align:left;
+  background:#f6f8ff;
+  padding:20px;
+  border-radius:16px;
+  margin-top:20px;
+  line-height:1.7;
+}
+
+.universe-card{
+  background:#fafafa;
+  padding:18px;
+  border-radius:14px;
+  margin:12px 0;
+}
+
+.glow{
+  animation:glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+  from{box-shadow:0 0 10px #ff4d6d}
+  to{box-shadow:0 0 25px #ff4d6d}
+}
+
+.heart{
+  position:fixed;
+  font-size:18px;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh);}
+}
+
+</style>
+</head>
+<body>
+
+<div class="portal">
+
+<!-- SCREEN 1 -->
+<div id="s1">
+<h1>Multiverse Love Portal 💫</h1>
+<p>Scientists discovered something shocking…</p>
+<p><b>In every universe, you somehow end up with me.</b></p>
+
+<button class="primary" onclick="openPortal()">Enter Portal</button>
+</div>
+
+<!-- SCAN -->
+<div id="scan" class="hidden">
+<h2>Scanning Alternate Realities...</h2>
+<div class="timeline" id="timeline"></div>
+</div>
+
+<!-- UNIVERSES -->
+<div id="universes" class="hidden">
+<h2>Choose a Universe 🌌</h2>
+
+<div class="universe-card">
+<b>Universe 1452:</b> We meet at a coffee shop. You steal my fries. Relationship begins.
+</div>
+
+<div class="universe-card">
+<b>Universe 2031:</b> I'm a famous developer. You pretend you didn't fall for me instantly.
+</div>
+
+<div class="universe-card">
+<b>Universe 9999:</b> Zombies everywhere. Still dating you.
+</div>
+
+<button class="secondary" onclick="rejectFate()">Reject All Universes</button>
+<button class="primary glow" onclick="acceptFate()">Accept Destiny ❤️</button>
+</div>
+
+<!-- FINAL -->
+<div id="final" class="hidden">
+<h1>Destiny Confirmed ❤️</h1>
+<p>
+After analyzing <b>14,000,605 universes</b>...
+<br><br>
+There was only <b>one constant.</b>
+<br><br>
+<b>You. Choosing. Me.</b>
+<br><br>
+So technically…
+This isn't a proposal.
+
+It's inevitability 😌
+<br><br>
+Happy Valentine's Day 💖
+</p>
+</div>
+
+</div>
+
+<script>
+
+const scanLines=[
+"> Opening dimensional gateway...",
+"> Calibrating romance frequency...",
+"> Detecting soulmate signature...",
+"> ALERT: Same person found across timelines",
+"> Probability of us meeting: 100%",
+"> Probability of you loving me: suspiciously high",
+"> Loading universes..."
+];
+
+function openPortal(){
+ s1.classList.add('hidden');
+ scan.classList.remove('hidden');
+
+ let i=0;
+ const tl=document.getElementById('timeline');
+
+ const interval=setInterval(()=>{
+   if(i>=scanLines.length){
+     clearInterval(interval);
+
+     setTimeout(()=>{
+       scan.classList.add('hidden');
+       universes.classList.remove('hidden');
+     },900);
+     return;
+   }
+
+   tl.innerHTML+=scanLines[i]+"<br>";
+   i++;
+ },550);
+}
+
+function rejectFate(){
+ alert("Error: Destiny cannot be rejected 😌");
+}
+
+function acceptFate(){
+ universes.classList.add('hidden');
+ final.classList.remove('hidden');
+ heartRain();
+}
+
+function heartRain(){
+ setInterval(()=>{
+   const h=document.createElement('div');
+   h.className='heart';
+   h.innerText='💖';
+   h.style.left=Math.random()*100+'vw';
+   h.style.animationDuration=(Math.random()*2+2)+'s';
+   document.body.appendChild(h);
+
+   setTimeout(()=>h.remove(),4000);
+ },120);
+}
+
+</script>
+</body>
+</html>
